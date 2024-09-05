@@ -1,0 +1,39 @@
+<div *ngIf="errorMessage; else dataTemplate">
+  <p>Error: {{ errorMessage }}</p>
+</div>
+
+<ng-template #dataTemplate>
+  <h1 class="text-center text-3xl font-medium">User List Fetched From API</h1>
+  <div class="m-5 rounded shadow-md text-center overflow-x-auto">
+  <table class="min-w-full bg-white rounded border border-gray-300">
+    <tr class="bg-gray-200">
+      <th class="py-2 px-4 border border-black">Name</th>
+      <th class="py-2 px-4 border border-black">Email</th>
+      <th class="py-2 px-4 border border-black">Website</th>
+    </tr>
+    <tr>
+      <td class="border bg-amber-200 border-gray-500">
+        <p *ngIf="data.length > 0; else noData">
+        <p *ngFor="let item of data">
+          {{ item.name }}
+    </td>
+    <td class="border bg-amber-200 border-gray-500">
+      <p *ngIf="data.length > 0; else noData">
+      <p *ngFor="let item of data">
+        {{ item.email }}
+  </td>
+  <td class="border bg-amber-200 border-gray-500">
+    <p *ngIf="data.length > 0; else noData">
+    <p *ngFor="let item of data">
+      {{ item.website }}
+
+</td>
+    </tr>
+</table>
+  </div>
+  <p class="ml-5 text-gray-700 font-mono">* Check Console For Fetched Array</p>
+</ng-template>
+
+<ng-template #noData>
+  <p>LOADING</p>
+</ng-template>
